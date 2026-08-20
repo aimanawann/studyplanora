@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>StudyPlanOra</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <main class="app-container">
+    <header class="app-header">
+      <h1 class="logo-title">Plan Better, Study Smarter</h1>
+    </header>
+
+    <!-- Main Navigation Menu -->
+    <div id="mainMenu" class="menu-container">
+      <button class="menu-banner-btn" onclick="openSection('addTask')">
+        <span>1.) ADD STUDY TASK</span>
+      </button>
+
+      <button class="menu-banner-btn" onclick="openSection('deadlines')">
+        <span>2.) UPCOMING DEADLINES</span>
+      </button>
+
+      <button class="menu-banner-btn" onclick="openSection('progress')">
+        <span>3.) PROGRESS SECTION</span>
+      </button>
+
+      <button class="menu-banner-btn" onclick="openSection('settings')">
+        <span>4.) SETTINGS</span>
+      </button>
+    </div>
+
+    <!-- Sub-page Container -->
+    <div id="subView" class="sub-view hidden">
+      <button class="back-btn" onclick="showMainMenu()">⬅ Back to Menu</button>
+
+      <!-- SECTION 1: ADD STUDY TASK -->
+      <section id="addTask" class="section-content hidden">
+        <h2 class="section-title">Add Study Task</h2>
+        <form id="taskForm">
+          <div class="input-group">
+            <label for="subject">Subject / Program</label>
+            <input type="text" id="subject" placeholder="e.g., Teaching" required />
+          </div>
+          <div class="input-group">
+            <label for="taskName">Task Name</label>
+            <input type="text" id="taskName" placeholder="e.g., Task 1" required />
+          </div>
+          <div class="input-group">
+            <label for="dueDate">Deadline</label>
+            <input type="date" id="dueDate" required />
+          </div>
+          <button type="submit" class="action-btn-primary">Save Task ✨</button>
+        </form>
+      </section>
+
+      <!-- SECTION 2: UPCOMING DEADLINES -->
+      <section id="deadlines" class="section-content hidden">
+        <h2 class="section-title">Upcoming Deadlines</h2>
+        <ul id="taskList" class="task-list"></ul>
+      </section>
+
+      <!-- SECTION 3: PROGRESS SECTION -->
+      <section id="progress" class="section-content hidden">
+        <h2 class="section-title">Progress Section</h2>
+        <div class="progress-card">
+          <p class="progress-label">Task Completion Rate</p>
+          <div class="progress-bar-background">
+            <div id="progressBar" class="progress-bar-fill" style="width: 0%;"></div>
+          </div>
+          <p id="progressPercentage" class="progress-percent-text">0% Completed</p>
+        </div>
+      </section>
+
+      <!-- SECTION 4: SETTINGS -->
+      <section id="settings" class="section-content hidden">
+        <h2 class="section-title">Settings</h2>
+        <div class="setting-item">
+          <span>Appearance Theme</span>
+          <button id="themeToggleBtn" class="setting-btn" onclick="toggleTheme()">Switch to Dark Mode</button>
+        </div>
+        <div class="setting-item">
+          <span>Notifications</span>
+          <button id="notifToggleBtn" class="setting-btn" onclick="toggleNotifications()">Enable Notifications</button>
+        </div>
+        <div class="setting-item">
+          <span>Reset Planner</span>
+          <button class="danger-btn" onclick="resetPlanner()">Reset All Data</button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
